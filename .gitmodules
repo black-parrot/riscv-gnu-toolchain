@@ -3,7 +3,7 @@
 	url = ../riscv-binutils-gdb.git
 [submodule "riscv-gcc"]
 	path = riscv-gcc
-	url = ../riscv-gcc.git
+	url = https://github.com/save-buffer/riscv-gcc/tree/bsg_vanilla_core.git
 [submodule "riscv-glibc"]
 	path = riscv-glibc
 	url = ../riscv-glibc.git
@@ -12,7 +12,8 @@
 	url = ../riscv-dejagnu.git
 [submodule "riscv-newlib"]
 	path = riscv-newlib
-	url = ../riscv-newlib.git
+	url = https://github.com/bespoke-silicon-group/bsg_newlib_dramfs.git
+	branch = dramfs
 [submodule "riscv-gdb"]
 	path = riscv-gdb
 	url = ../riscv-binutils-gdb.git
