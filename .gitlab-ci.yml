@@ -24,4 +24,5 @@ publish:
   tags:
     - bsg
   script:
-    - echo "Doing release of ${RELEASE_TAG}"
+      - if [ -z "$CI_RELEASE_TAG"] then echo "Error: Please set CI_RELEASE_TAG"; exit 1; fi
+      - echo "$CI_RELEASE_TAG"
