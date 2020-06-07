@@ -6,7 +6,7 @@ stages:
   - build
   - publish
 
-build:
+compile:
   only:
     - ci_test
   stage: build
