@@ -1,0 +1,18 @@
+variables:
+  GIT_STRATEGY: fetch
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - publish
+
+build:
+  only:
+    - ci_test
+  stage: build
+  tags:
+    - bsg
+  script:
+    - ./configure --with-arch=rv64ima --with-abi=lp64 --with-cmodel=medany --prefix=`(pwd)`/target
+    - make -j ${CI_NUM_CORES}
+    - make install
