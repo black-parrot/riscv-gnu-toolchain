@@ -7,6 +7,7 @@ stages:
   - publish
 
 compile:
+  when: manual
   only:
     - ci_test
   stage: build
@@ -14,5 +15,13 @@ compile:
     - bsg
   script:
     - ./configure --with-arch=rv64ima --with-abi=lp64 --with-cmodel=medany --prefix=`(pwd)`/target
-    - make -j ${CI_NUM_CORES}
-    - make install
+    - make -j ${CI_NUM_CORES} > compile.log
+    - make install 
+
+publish:
+  when: manual
+  stage: publish
+  tags:
+    - bsg
+  script:
+    - echo "Doing release of ${RELEASE_TAG}"
