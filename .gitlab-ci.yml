@@ -14,9 +14,14 @@ compile:
   tags:
     - bsg
   script:
-    - ./configure --with-arch=rv64ima --with-abi=lp64 --with-cmodel=medany --prefix=`(pwd)`/target
+    - ./configure --with-arch=rv64ima --with-abi=lp64 --with-cmodel=medany --prefix=`(pwd)`/release
     - make -j ${CI_NUM_CORES} > compile.log
-    - make install 
+    - make install
+    - tar -czvf release.tgz release/
+  artifacts:
+    paths:
+      - release.tgz
+    expire_in: 1 week
 
 publish:
   when: manual
@@ -25,8 +30,7 @@ publish:
     - bsg
   script:
       - >
-        if [ "z$CI_RELEASE_TAG" == "z"]; then
+        if [ "z$CI_RELEASE_TAG" == "z" ]; then
           echo "Error: Please set CI_RELEASE_TAG";
           exit 1;
         fi
-      - echo "$CI_RELEASE_TAG"
