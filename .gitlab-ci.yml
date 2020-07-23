@@ -8,8 +8,6 @@ stages:
 
 compile:
   when: manual
-  only:
-    - ci_test
   stage: build
   tags:
     - bsg
