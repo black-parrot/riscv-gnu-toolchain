@@ -3,7 +3,7 @@
 	url = https://github.com/riscv/riscv-binutils-gdb.git
 [submodule "riscv-gcc"]
 	path = riscv-gcc
-    url = https://github.com/black-parrot/riscv-gcc.git
+    url = https://github.com/black-parrot-sdk/riscv-gcc.git
     branch = blackparrot_mods
 [submodule "riscv-glibc"]
 	path = riscv-glibc
