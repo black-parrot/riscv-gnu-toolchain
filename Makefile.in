@@ -435,7 +435,7 @@ stamps/build-gcc-newlib-stage1: $(GCC_SRCDIR) stamps/build-binutils-newlib
 		--disable-shared \
 		--disable-threads \
 		--disable-tls \
-		--enable-languages=c,c++ \
+		--enable-languages=c,c++,fortran \
 		@with_system_zlib@ \
 		--with-newlib \
 		--with-sysroot=$(INSTALL_DIR)/$(NEWLIB_TUPLE) \
@@ -529,7 +529,7 @@ stamps/build-gcc-newlib-stage2: $(GCC_SRCDIR) stamps/build-newlib \
 		--prefix=$(INSTALL_DIR) \
 		--disable-shared \
 		--disable-threads \
-		--enable-languages=c,c++ \
+		--enable-languages=c,c++,fortran \
 		@with_system_zlib@ \
 		--enable-tls \
 		--with-newlib \
